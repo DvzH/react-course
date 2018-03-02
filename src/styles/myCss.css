@@ -1,0 +1,71 @@
+.Scrll{
+    overflow: hidden;
+    margin: 35px;
+}
+.modal-container {
+    position: absolute;
+  }
+  .modal-container .modal, .modal-container .modal-backdrop {
+    position: fixed;
+    background-color: rgba(52, 52, 52, 0.8);
+    overflow: hidden;
+  }
+
+  .modal-body{
+      overflow:auto;
+      background-color: #f5f5f5;
+}
+
+.modal-header{
+    min-height: 16.428571429px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight:bold;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #ddeff1;    
+}
+
+.header{
+   color:blue; 
+}
+
+.modal-open {
+    overflow: hidden;
+}
+.modal-footer{
+    padding: 0px 0px 0px 20px;
+    margin-top: 0px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background-color: #ddeff1;
+}
+
+
+.input-lg {
+    height: 45px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+   /* border-radius: 6px;*/
+    background-color:#a9cbce;
+}
+
+::placeholder { 
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+
+.in{
+    opacity: 1;
+}
+
+.trans{
+    transition:opacity 200ms ease-in-out;
+}
