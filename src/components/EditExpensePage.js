@@ -5,6 +5,7 @@ import { editExpense, removeExpense } from '../actions/expenses';
 
 const EditExpensePage = (props) => {
   console.log(props);
+  debugger;
   return (
     <div>
       Editing the expense with id of {props.match.params.id}
