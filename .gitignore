@@ -1,7 +1,4 @@
 node_modules/
 .DS_Store
-public/bundle.js.map
-public/bundle
-public/styles.css
-public/styles.css.map
+public/dist/
 src/components/EmployeeJSX.js
