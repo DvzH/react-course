@@ -17,8 +17,6 @@ export class ExpenseForm extends React.Component {
         }
     }
     
-
-
     onDescriptionChange = (e) => {
         const description = e.target.value;
         this.setState(() => ({ description }));
