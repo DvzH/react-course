@@ -6,7 +6,8 @@ import { addExpense } from './actions/expenses';
 import { setTextFilter, setStartDate } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import { Provider } from 'react-redux';
-import {EmployeeTable} from './components/EmployeeJSX'
+import {EmployeeTable} from './components/EmployeeJSX';
+import './firebase/firebase'
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';

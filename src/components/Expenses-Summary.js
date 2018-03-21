@@ -2,12 +2,13 @@ import React from 'react';
 import {Connect, connect} from 'react-redux';
 import ExpensesTotal from './Expenses-Total';
 import SelectExpenses from "../selectors/expenses";
+import numeral from "numeral";
 
 const ExpensesSummary=({expenseCount,ExpensesTotal })=>{
     const expenseWord=(expenseCount===1) ?'expense':'expenses';
     return(
         <div>
-        <h1>Viewing {expenseCount} {expenseWord} totalling {ExpensesTotal}</h1>
+        <h1>Viewing {expenseCount} {expenseWord} totalling {numeral(ExpensesTotal).format('$0,0.00')}</h1>
         </div>
     )
 }
