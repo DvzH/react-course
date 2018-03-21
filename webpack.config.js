@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
 //envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV.trim() + '.env'));
 
 console.log("NODE_ENV", process.env.NODE_ENV);
-console.log("API_KEY", process.env.APP_KEY);
+console.log("API_KEY", process.env.FIREBASE_API_KEY);
 
 module.exports = (env) => {
   const isProduction = env === 'production';

@@ -13,8 +13,12 @@ const config = {
   export const database=firebase.database();
   export {firebase,database as default}
   
-console.log("NODE_ENV",process.env.NODE_ENV);
-console.log("API_KEY",process.env.APP_KEY); 
+//console.log("NODE_ENV1",process.env.NODE_ENV);
+console.log("API_KEY1",process.env.FIREBASE_API_KEY);
+console.log("Database",process.env.FIREBASE_DATABASE_URL);
+console.log("Database",process.env.FIREBASE_AUTH_DOMAIN);
+console.log();
+
 
 //   firebase.database().ref().set({
 //       name:'Kiran Hiremath',
