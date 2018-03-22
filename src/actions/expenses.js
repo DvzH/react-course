@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import {database} from 'firebase';
+import { database } from 'firebase';
 import firebase from 'firebase';
 
 // ADD_EXPENSE
@@ -8,20 +8,20 @@ export const addExpense = (expense) => ({
   expense
 });
 
-export const startAddExpense=(expenseData={})=>{
-  return((dispatch)=>{
+export const startAddExpense = (expenseData = {}) => {
+  return ((dispatch) => {
     const {
       description = '',
       note = '',
       amount = 0,
       createdAt = 0
-    }=expenseData;
+    } = expenseData;
 
-    const expense={description,note,amount,createdAt}
-  
-    firebase.database().ref('expenses').push(expense).then((ref)=>{
+    const expense = { description, note, amount, createdAt }
+
+    firebase.database().ref('expenses').push(expense).then((ref) => {
       dispatch(addExpense({
-        id:ref.key,
+        id: ref.key,
         ...expense
       }));
     })
@@ -40,3 +40,25 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+//SET_EXPENSE
+export const setExpense=(expenses)=>({
+  type:'SET_EXPENSES',
+  expenses
+});
+
+//SET_START_EXPENSE
+export const startSetExpenses = () => {
+  return ((dispatch) => {
+    return firebase.database().ref('expenses').once('value').then((snapshot) => {
+      const expenses = [];
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id:childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+      dispatch(setExpense(expenses));
+    });
+  });
+}
