@@ -9,15 +9,18 @@ const config = {
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
   };
   firebase.initializeApp(config);
-
+ 
   export const database=firebase.database();
-  export {firebase,database as default}
+  const googleAuthProvider=new firebase.auth.GoogleAuthProvider();
+
+  export {firebase,googleAuthProvider,database as default}
   
 //console.log("NODE_ENV1",process.env.NODE_ENV);
 console.log("API_KEY1",process.env.FIREBASE_API_KEY);
 console.log("Database",process.env.FIREBASE_DATABASE_URL);
 console.log("Database",process.env.FIREBASE_AUTH_DOMAIN);
-console.log();
+
+
 
 
 //   firebase.database().ref().set({
