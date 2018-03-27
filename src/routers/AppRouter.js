@@ -6,10 +6,10 @@ import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
-import Header from '../components/Header';
 import { EmployeeTable } from '../components/EmployeeJSX';
 import LoginPage from '../components/LoginPage';
-import PrivateRouter from './PrivateRouter'
+import PrivateRouter from './PrivateRouter';
+import PublicRouter from './PublicRouter';
 
 export const history=createHistory();
 
@@ -22,8 +22,8 @@ const AppRouter = () => (
         <PrivateRouter path="/create" component={AddExpensePage} />
         <PrivateRouter path="/edit/:id" component={EditExpensePage} />
         <PrivateRouter path="/help" component={HelpPage} />
-        <Route path="/EmployeeTable" component={EmployeeTable} />
-        <Route component={NotFoundPage} />
+        <PublicRouter path="/EmployeeTable" component={EmployeeTable} />
+        <PublicRouter component={NotFoundPage} />
       </Switch>
     </div>
   </Router>

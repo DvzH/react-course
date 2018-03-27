@@ -9,7 +9,7 @@ export const addExpense = (expense) => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-  return ((dispatch) => {
+  return ((dispatch,getState) => {
     const {
       description = '',
       note = '',
@@ -17,9 +17,10 @@ export const startAddExpense = (expenseData = {}) => {
       createdAt = 0
     } = expenseData;
 
+    const uid=getState().auth.uid;
     const expense = { description, note, amount, createdAt }
 
-    firebase.database().ref('expenses').push(expense).then((ref) => {
+    firebase.database().ref(`Users/${uid}/expenses`).push(expense).then((ref) => {
       dispatch(addExpense({
         id: ref.key,
         ...expense
@@ -49,8 +50,9 @@ export const setExpense=(expenses)=>({
 
 //SET_START_EXPENSES
 export const startSetExpenses = () => {
-  return ((dispatch) => {
-    return firebase.database().ref('expenses').once('value').then((snapshot) => {
+  return ((dispatch,getState) => {
+    const uid=getState().auth.uid;
+    return firebase.database().ref(`Users/${uid}/expenses`).once('value').then((snapshot) => {
       const expenses = [];
       snapshot.forEach((childSnapshot) => {
         expenses.push({
@@ -66,8 +68,9 @@ export const startSetExpenses = () => {
 //SET_REMOVE_EXPENSE
 export const setRemoveExpenses=({id}={})=>{
   debugger;
-  return((dispatch)=>{
-    firebase.database().ref(`expenses/${id}`).remove().then((ref)=>{
+  return((dispatch,getState)=>{
+    const uid=getState().auth.uid;
+    firebase.database().ref(`Users/${uid}/expenses/${id}`).remove().then((ref)=>{
       dispatch(removeExpense({id}));
     });
   });
@@ -84,8 +87,9 @@ export const startEditExpense=(id,expenseData={})=>{
 
   const expense = { description, note, amount, createdAt }
 
-  return((dispatch)=>{
-    firebase.database().ref(`expenses/${id}`).update({ description, note, amount, createdAt })
+  return((dispatch,getState)=>{
+    const uid=getState().auth.uid;
+    firebase.database().ref(`Users/${uid}expenses/${id}`).update({ description, note, amount, createdAt })
     .then(()=>{
       dispatch(editExpense(id,expense));
     })

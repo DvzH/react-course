@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from "react-redux";
 import {startLogout} from "../actions/auth";
+import ExpenseDashboardPage from "../components/ExpenseDashboardPage"
 
 export const Header = ({startLogout}) => (
   <header>

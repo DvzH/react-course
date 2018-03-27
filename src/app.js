@@ -45,7 +45,9 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<img style={{display: 'centre'}} 
+src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />, 
+document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
