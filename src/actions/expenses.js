@@ -89,7 +89,7 @@ export const startEditExpense=(id,expenseData={})=>{
 
   return((dispatch,getState)=>{
     const uid=getState().auth.uid;
-    firebase.database().ref(`Users/${uid}expenses/${id}`).update({ description, note, amount, createdAt })
+    firebase.database().ref(`Users/${uid}/expenses/${id}`).update({ description, note, amount, createdAt })
     .then(()=>{
       dispatch(editExpense(id,expense));
     })
