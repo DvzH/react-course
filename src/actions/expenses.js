@@ -16,7 +16,7 @@ export const startAddExpense = (expenseData = {}) => {
       amount = 0,
       createdAt = 0
     } = expenseData;
-
+    debugger;
     const uid=getState().auth.uid;
     const expense = { description, note, amount, createdAt }
 

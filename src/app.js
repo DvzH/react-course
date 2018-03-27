@@ -38,10 +38,8 @@ let hasRendered = false;
 const renderApp = () => {
     debugger;
     if (!hasRendered) {
-        store.dispatch(startSetExpenses()).then(() => {
-            ReactDOM.render(jsx, document.getElementById('app'));
-            hasRendered = true;
-        });
+         ReactDOM.render(jsx, document.getElementById('app'));
+         hasRendered = true;
     }
 }
 
@@ -55,11 +53,12 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log("Log in");
         console.log(user.uid);
         store.dispatch(Login(user.uid));
-        renderApp();
-        if(history.location.pathname==='/')
-        {
-            history.push('/ExpenseDashboardPage');
-        }
+        store.dispatch(startSetExpenses()).then(() => {
+            renderApp();
+            if (history.location.pathname === '/') {
+              history.push('/dashboard');
+            }
+          });
     }
     else {
         debugger;

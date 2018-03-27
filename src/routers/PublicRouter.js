@@ -10,7 +10,7 @@ export const PublicRouter = ({
     <Route {...rest} component={() => (
         isAuthenticated ? (
             <div>
-                <Riderct to="/ExpenseDashboardPage"  />
+                <Redirect to="/ExpenseDashboardPage"  />
             </div>
         ) : (
                 <Redirect to="/" />
