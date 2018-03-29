@@ -9,19 +9,25 @@ const EditExpensePage = (props) => {
   debugger;
   return (
     <div>
-      Editing the expense with id of {props.match.params.id}
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title">Edit Expense</h1>
+        </div>
+      </div>
+    <div className="content-container">
       <ExpenseForm
-      expense={props.expense} 
-      onSubmit={(expense)=>{
-        props.dispatch(startEditExpense(props.match.params.id,expense));
-        props.history.push('/ExpenseDashboardPage');
-      }}
+        expense={props.expense}
+        onSubmit={(expense) => {
+          props.dispatch(startEditExpense(props.match.params.id, expense));
+          props.history.push('/ExpenseDashboardPage');
+        }}
       />
-      <button onClick={() => {
-        props.dispatch(setRemoveExpenses({id:props.expense.id}));
+      <button className="button button--secondary" onClick={() => {
+        props.dispatch(setRemoveExpenses({ id: props.expense.id }));
         props.history.push('/ExpenseDashboardPage');
-    }
-    }>Remove</button>
+      }
+      }>Remove Expense</button>
+      </div>
     </div>
   );
 };
@@ -34,3 +40,4 @@ const mapStateToProps = (state, props) => {
 };
 
 export default connect(mapStateToProps)(EditExpensePage);
+ //Editing the expense with id of {props.match.params.id}

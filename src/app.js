@@ -9,9 +9,10 @@ import getVisibleExpenses from './selectors/expenses';
 import { Provider } from 'react-redux';
 import { EmployeeTable } from './components/EmployeeJSX';
 import { firebase } from './firebase/firebase';
-
+import Loader from './components/Loader';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import { height } from 'window-size';
 
 const store = configureStore();
 
@@ -43,9 +44,12 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<img style={{display: 'centre'}} 
-src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />, 
-document.getElementById('app'));
+// ReactDOM.render(<img style={{display:'flex',height:'100vh',width:'100wh',alignItems:'center'}} 
+// src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />, 
+// document.getElementById('app'));
+
+ReactDOM.render(<Loader/>,document.getElementById('app'));
+
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {

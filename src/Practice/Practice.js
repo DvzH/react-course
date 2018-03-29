@@ -30,6 +30,7 @@ export class Practice extends React.Component {
     render() {
         return (
             <div>
+            <h4>EE Sala Cup Namde</h4>
                 <p>Hello We are here to learn React</p>
                 {
                     this.state.Likes

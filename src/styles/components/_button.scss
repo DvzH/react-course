@@ -1,0 +1,23 @@
+.button{
+    background-color:$blue;
+    border: none;
+    padding:$s-size;
+    display: inline-block;
+    font-weight:300;
+    font-size: $font-size-large;
+    color:$font-color;
+    &:hover {
+        color: white;
+        text-decoration: none 
+    };
+    line-height: 1;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.button--link{
+    background: none;
+}
+
+.button--secondary{
+    background: #888888;
+}
