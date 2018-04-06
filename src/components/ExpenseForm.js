@@ -95,14 +95,14 @@ export class ExpenseForm extends React.Component {
                 />
 
                 <textarea
-                    placeholder="Add a note about expenses"
+                    placeholder="Add note of Expenses"
                     className="text-area"
                     value={this.state.note}
                     onChange={this.onNoteChange}
                 >
                 </textarea>
                 <div>
-                    <button className="button">{(this.state.description==='')?'Add expense':'Save Expense'}</button>
+                    <button className="button">{(this.state.description==="")?'Add expense':'Save Expense'}</button>
                 </div>
             </form>
         );

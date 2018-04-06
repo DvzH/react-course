@@ -40,4 +40,5 @@ const mapStateToProps = (state, props) => {
 };
 
 export default connect(mapStateToProps)(EditExpensePage);
+
  //Editing the expense with id of {props.match.params.id}

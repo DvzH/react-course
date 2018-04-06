@@ -11,3 +11,30 @@ export const MyChild= (props) => {
         </div>
     )
 }
+
+export class MyChild2 extends React.Component{
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            Share:0
+        }
+    }
+    
+    componentWillReceiveProps(props){
+        debugger;
+        console.log(props);
+        this.setState({
+            Share:props.Likes
+
+        })
+    }
+
+    render(){
+        return(
+        <div>
+           <p>I am the 2nd child and I have total shares of {this.state.Share} </p>
+           
+        </div>);
+    }
+}

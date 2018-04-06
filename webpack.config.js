@@ -9,15 +9,15 @@ if (process.env.NODE_ENV === 'development') {
 }
 //envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV.trim() + '.env'));
 
-console.log("NODE_ENV", process.env.NODE_ENV);
-console.log("API_KEY", process.env.FIREBASE_API_KEY);
-console.log("database__21",process.env.FIREBASE_DATABASE_URL);
+// console.log("NODE_ENV", process.env.NODE_ENV);
+// console.log("API_KEY", process.env.FIREBASE_API_KEY);
+// console.log("database__21",process.env.FIREBASE_DATABASE_URL);
 
 module.exports = (env) => {
   const isProduction = env === 'production';
   const CSSExtract = new ExtractTextPlugin('styles.css');
   return {
-    entry: './src/app.js',
+    entry: ['babel-polyfill','./src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'

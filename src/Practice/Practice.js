@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {MyChild} from './MyChild'
+import {MyChild,MyChild2} from './MyChild'
 
 export class Practice extends React.Component {
     constructor(props) {
@@ -19,6 +19,7 @@ export class Practice extends React.Component {
     }
 
     stateUpdateFromChild=(e)=>{
+        debugger;
         console.log(e);
         let myLikes=this.state.Likes;
         this.setState({
@@ -30,13 +31,15 @@ export class Practice extends React.Component {
     render() {
         return (
             <div>
-            <h4>EE Sala Cup Namde</h4>
+            
                 <p>Hello We are here to learn React</p>
                 {
                     this.state.Likes
                 }
                 <MyChild stateUpdate={this.stateUpdateFromChild}{...this.state}/>
+                <MyChild2 {...this.state}/>
                 <button onClick={()=>this.stateUpdateFun(this)}>Update Likes</button>
+               
             </div>
         )
     }
