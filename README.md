@@ -9,6 +9,9 @@ Pre-requesites:
 
 # Steps to install and run the application.
 1)Clone the repository.
+
 2)Then run "npm install or yarn install".
+
 3)RUN the command "Yarn run build:dev".
+
 4)Then RUN one more command "yarn run dev-server" to see the application running.
